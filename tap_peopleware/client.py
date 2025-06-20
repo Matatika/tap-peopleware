@@ -29,11 +29,7 @@ class PeoplewareStream(RESTStream):
     # Update this value if necessary or override `get_new_paginator`.
     next_page_token_jsonpath = "$.next_page"  # noqa: S105
 
-    @property
-    def url_base(self) -> str:
-        """Return the API URL root, configurable via tap settings."""
-        # TODO: hardcode a value here, or retrieve it from self.config
-        return "https://api.mysample.com"
+    url_base = "https://legacy-api.peopleware.com/v1"
 
     @property
     def authenticator(self) -> BearerTokenAuthenticator:
