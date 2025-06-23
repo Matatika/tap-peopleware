@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from singer_sdk import Tap
 from singer_sdk import typing as th  # JSON schema typing helpers
+from typing_extensions import override
 
-# TODO: Import your custom stream types here:
 from tap_peopleware import streams
 
 
@@ -25,43 +25,22 @@ class TapPeopleware(Tap):
             description="The token to authenticate against the API service",
         ),
         th.Property(
-            "project_ids",
-            th.ArrayType(th.StringType(nullable=False), nullable=False),
-            required=True,
-            title="Project IDs",
-            description="Project IDs to replicate",
-        ),
-        th.Property(
             "start_date",
             th.DateTimeType(nullable=True),
             description="The earliest record date to sync",
         ),
-        th.Property(
-            "api_url",
-            th.StringType(nullable=False),
-            title="API URL",
-            default="https://api.mysample.com",
-            description="The url for the API service",
-        ),
-        th.Property(
-            "user_agent",
-            th.StringType(nullable=True),
-            description=(
-                "A custom User-Agent header to send with each request. Default is "
-                "'<tap_name>/<tap_version>'"
-            ),
-        ),
     ).to_dict()
 
+    @override
     def discover_streams(self) -> list[streams.PeoplewareStream]:
-        """Return a list of discovered streams.
-
-        Returns:
-            A list of discovered streams.
-        """
         return [
-            streams.GroupsStream(self),
-            streams.UsersStream(self),
+            streams.ActivityStream(self),
+            streams.ContractStream(self),
+            streams.PlanningUnitStream(self),
+            streams.EmployeeStream(self),
+            streams.EmployeeContractStream(self),
+            streams.EmployeePlanningUnitStream(self),
+            streams.EmployeeScheduleStream(self),
         ]
 
 
