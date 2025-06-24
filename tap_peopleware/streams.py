@@ -80,6 +80,13 @@ class EmployeeStream(PeoplewareStream):
         return params
 
     @override
+    def post_process(self, row, context=None):
+        if row["birth_date"] == "":
+            row["birth_date"] = None
+
+        return row
+
+    @override
     def get_child_context(self, record, context):
         return {"employee_id": record["employee_id"]}
 
