@@ -1,6 +1,6 @@
 version: 1
 send_anonymous_usage_stats: true
-project_id: "tap-peopleware"
+project_id: tap-peopleware
 default_environment: test
 venv:
   backend: uv
@@ -8,8 +8,8 @@ environments:
 - name: test
 plugins:
   extractors:
-  - name: "tap-peopleware"
-    namespace: "tap_peopleware"
+  - name: tap-peopleware
+    namespace: tap_peopleware
     pip_url: -e .
     capabilities:
     - state
@@ -17,6 +17,8 @@ plugins:
     - discover
     - about
     - stream-maps
+    settings_group_validation:
+    - - auth_token
     settings:
     - name: auth_token
       label: Auth Token
@@ -26,8 +28,6 @@ plugins:
       kind: date_iso8601
       label: Start Date
       description: Initial date to start extracting data from
-    settings_group_validation:
-    - - auth_token
   loaders:
   - name: target-jsonl
     variant: andyh1203
