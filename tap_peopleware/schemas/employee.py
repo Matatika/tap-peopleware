@@ -32,7 +32,6 @@ EmployeePlanningUnitObject = th.PropertiesList(
     th.Property("start_date", th.DateType),
     th.Property("end_date", th.DateType),
     th.Property("priority", th.IntegerType),
-
 )
 
 EmployeeScheduleObject = th.PropertiesList(

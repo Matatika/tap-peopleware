@@ -111,7 +111,7 @@ class _EmployeeReportStream(PeoplewareStream):
     @override
     def validate_response(self, response):
         if response.status_code == HTTPStatus.NOT_FOUND:
-            msg = f'No data for employee {self.context["employee_id"]}'
+            msg = f"No data for employee {self.context['employee_id']}"
             raise ResumableAPIError(msg, response)
 
         super().validate_response(response)
