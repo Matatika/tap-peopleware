@@ -14,7 +14,6 @@ class TapPeopleware(Tap):
 
     name = "tap-peopleware"
 
-    # TODO: Update this section with the actual config values you expect:
     config_jsonschema = th.PropertiesList(
         th.Property(
             "auth_token",
@@ -32,7 +31,7 @@ class TapPeopleware(Tap):
     ).to_dict()
 
     @override
-    def discover_streams(self) -> list[streams.PeoplewareStream]:
+    def discover_streams(self):
         return [
             streams.ActivityStream(self),
             streams.ContractStream(self),

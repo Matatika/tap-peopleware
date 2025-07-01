@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from datetime import date
 from http import HTTPStatus
+from typing import TYPE_CHECKING
 
-import requests
 from typing_extensions import override
 
 from tap_peopleware.client import PeoplewareStream
@@ -19,11 +19,14 @@ from tap_peopleware.schemas.employee import (
 )
 from tap_peopleware.schemas.planning_unit import PlanningUnitObject
 
+if TYPE_CHECKING:
+    import requests
+
 API_MIN_DATE = date(1900, 1, 1)
 API_MAX_DATE = date(4000, 1, 1)
 
 
-class ResumableAPIError(Exception):
+class _ResumableAPIError(Exception):
     def __init__(self, message: str, response: requests.Response) -> None:
         super().__init__(message)
         self.response = response
@@ -98,7 +101,7 @@ class _EmployeeReportStream(PeoplewareStream):
     def get_records(self, context):
         try:
             yield from super().get_records(context)
-        except ResumableAPIError as e:
+        except _ResumableAPIError as e:
             self.logger.warning(e)
 
     @override
@@ -112,7 +115,7 @@ class _EmployeeReportStream(PeoplewareStream):
     def validate_response(self, response):
         if response.status_code == HTTPStatus.NOT_FOUND:
             msg = f"No data for employee {self.context['employee_id']}"
-            raise ResumableAPIError(msg, response)
+            raise _ResumableAPIError(msg, response)
 
         super().validate_response(response)
 
@@ -131,6 +134,7 @@ class EmployeeContractStream(_EmployeeReportStream):
     replication_key = "start_date"
     records_jsonpath = "$.employee_contracts[*]"
 
+    @override
     @property
     def path(self):
         return "/employees/{employee_id}/contracts/{start_date}".format(
@@ -150,6 +154,7 @@ class EmployeePlanningUnitStream(_EmployeeReportStream):
     replication_key = "end_date"
     records_jsonpath = "$.employee_planning_units[*]"
 
+    @override
     @property
     def path(self):
         return "/employees/{employee_id}/planning_units/{start_date}".format(
@@ -169,6 +174,7 @@ class EmployeeScheduleStream(_EmployeeReportStream):
     replication_key = "booking_date"
     records_jsonpath = "$.schedules[*]"
 
+    @override
     @property
     def path(self):
         return "/employees/{employee_id}/schedule/{start_date}".format(
