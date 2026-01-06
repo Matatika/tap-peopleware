@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.9"
 resolution-markers = [
     "python_full_version >= '3.10'",
@@ -493,11 +493,11 @@ wheels = [
 
 [[package]]
 name = "fsspec"
-version = "2025.7.0"
+version = "2025.10.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/8b/02/0835e6ab9cfc03916fe3f78c0956cfcdb6ff2669ffa6651065d5ebf7fc98/fsspec-2025.7.0.tar.gz", hash = "sha256:786120687ffa54b8283d942929540d8bc5ccfa820deb555a2b5d0ed2b737bf58", size = 304432, upload-time = "2025-07-15T16:05:21.19Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/24/7f/2747c0d332b9acfa75dc84447a066fdf812b5a6b8d30472b74d309bfe8cb/fsspec-2025.10.0.tar.gz", hash = "sha256:b6789427626f068f9a83ca4e8a3cc050850b6c0f71f99ddb4f542b8266a26a59", size = 309285, upload-time = "2025-10-30T14:58:44.036Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/2f/e0/014d5d9d7a4564cf1c40b5039bc882db69fd881111e03ab3657ac0b218e2/fsspec-2025.7.0-py3-none-any.whl", hash = "sha256:8b012e39f63c7d5f10474de957f3ab793b47b45ae7d39f2fb735f8bbe25c0e21", size = 199597, upload-time = "2025-07-15T16:05:19.529Z" },
+    { url = "https://files.pythonhosted.org/packages/eb/02/a6b21098b1d5d6249b7c5ab69dde30108a71e4e819d4a9778f1de1d5b70d/fsspec-2025.10.0-py3-none-any.whl", hash = "sha256:7c7712353ae7d875407f97715f0e1ffcc21e33d5b24556cb1e090ae9409ec61d", size = 200966, upload-time = "2025-10-30T14:58:42.53Z" },
 ]
 
 [[package]]
@@ -1050,7 +1050,7 @@ wheels = [
 
 [[package]]
 name = "requests"
-version = "2.32.4"
+version = "2.32.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "certifi" },
@@ -1059,9 +1059,9 @@ dependencies = [
     { name = "urllib3", version = "1.26.20", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
     { name = "urllib3", version = "2.5.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz", hash = "sha256:27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422", size = 135258, upload-time = "2025-06-09T16:43:07.34Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz", hash = "sha256:dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf", size = 134517, upload-time = "2025-08-18T20:46:02.573Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7c/e4/56027c4a6b4ae70ca9de302488c5ca95ad4a39e190093d6c1a8ace08341b/requests-2.32.4-py3-none-any.whl", hash = "sha256:27babd3cda2a6d50b30443204ee89830707d396671944c998b5975b031ac2b2c", size = 64847, upload-time = "2025-06-09T16:43:05.728Z" },
+    { url = "https://files.pythonhosted.org/packages/1e/db/4254e3eabe8020b458f1a747140d32277ec7a271daf1d235b70dc0b4e6e3/requests-2.32.5-py3-none-any.whl", hash = "sha256:2462f94637a34fd532264295e186976db0f5d453d1cdd31473c85a6a161affb6", size = 64738, upload-time = "2025-08-18T20:46:00.542Z" },
 ]
 
 [[package]]
@@ -1190,16 +1190,16 @@ wheels = [
 
 [[package]]
 name = "s3fs"
-version = "2025.7.0"
+version = "2025.10.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiobotocore" },
     { name = "aiohttp" },
     { name = "fsspec" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/bf/13/37438c4672ba1d23ec46df0e4b57e98469e5c5f4f98313cf6842b631652b/s3fs-2025.7.0.tar.gz", hash = "sha256:5e7f9ec0cad7745155e3eb86fae15b1481fa29946bf5b3a4ce3a60701ce6022d", size = 77795, upload-time = "2025-07-15T16:35:22.177Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/bb/ee/7cf7de3b17ef6db10b027cc9f8a1108ceb6333e267943e666a35882b1474/s3fs-2025.10.0.tar.gz", hash = "sha256:e8be6cddc77aceea1681ece0f472c3a7f8ef71a0d2acddb1cc92bb6afa3e9e4f", size = 80383, upload-time = "2025-10-30T15:06:04.647Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ff/c7/30d13b7fd4f866ca3f30e9a6e7ae038f0c45226f6e26b3cc98d6d197f93b/s3fs-2025.7.0-py3-none-any.whl", hash = "sha256:b6b2d3f84b6aa1c2ba5e62e39dd9410cf54f10a2cce1ea6db1ba0d1a6bcce685", size = 30315, upload-time = "2025-07-15T16:35:20.734Z" },
+    { url = "https://files.pythonhosted.org/packages/2d/fc/56cba14af8ad8fd020c85b6e44328520ac55939bb1f9d01444ad470504cb/s3fs-2025.10.0-py3-none-any.whl", hash = "sha256:da7ef25efc1541f5fca8e1116361e49ea1081f83f4e8001fbd77347c625da28a", size = 30357, upload-time = "2025-10-30T15:06:03.48Z" },
 ]
 
 [[package]]
@@ -1413,7 +1413,7 @@ test = [
 [package.metadata]
 requires-dist = [
     { name = "requests", specifier = "~=2.32.3" },
-    { name = "s3fs", marker = "extra == 's3'", specifier = "~=2025.7.0" },
+    { name = "s3fs", marker = "extra == 's3'", specifier = "~=2025.10.0" },
     { name = "singer-sdk", specifier = "~=0.48.0" },
 ]
 provides-extras = ["s3"]
